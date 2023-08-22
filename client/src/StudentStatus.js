@@ -15,7 +15,7 @@ const StudentStatus = () => {
     }])
     async function fetchStudentRecords (e) {
         
-        const req = await fetch("http://localhost:5000/fetchStudentRecords",{
+        const req = await fetch("https://student-management-system-seven.vercel.app/fetchStudentRecords",{
             method:"GET",
             headers:{
                 "x-access-token":localStorage.getItem("token"),

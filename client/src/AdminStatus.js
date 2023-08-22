@@ -14,7 +14,7 @@ const AdminStatus = () => {
     const [regno, setregno] = useState("")
     const [mobno, setmobno] = useState("")
     async function showStudentRecords(){
-        const req = await fetch("http://localhost:5000/adminStudentRecords",{
+        const req = await fetch("https://student-management-system-seven.vercel.app/adminStudentRecords",{
             method:"GET",
             headers:{
                 "x-access-token":localStorage.getItem("token"),
@@ -38,7 +38,7 @@ const AdminStatus = () => {
     async function deleteData(e){
         const namer = e.target.getAttribute("data-uid");
         console.log(namer);
-        const response = await fetch("http://localhost:5000/deleteStudentRecord" , {
+        const response = await fetch("https://student-management-system-seven.vercel.app/deleteStudentRecord" , {
         method:"DELETE",
         headers:{
         'Content-Type':"application/json"
@@ -57,7 +57,7 @@ const AdminStatus = () => {
     async function updateData(e){
         const namer = e.target.getAttribute("data-uid")
         console.log(namer);
-        const response = await fetch("http://localhost:5000/updateStudentRecord" , {
+        const response = await fetch("https://student-management-system-seven.vercel.app/updateStudentRecord" , {
         method:"PUT",
         headers:{
         'Content-Type':"application/json"

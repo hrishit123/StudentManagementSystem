@@ -11,13 +11,18 @@ const { json } = require("express");
 app.use(cors())//for cross origin
 app.use(express.json())
 mongoose.connect("mongodb://localhost:27017/studentDB")
+
+app.get("/", async(req, res) => {
+    res.json("hello world");
+})
+
 app.post("/student/login",async(req , res) => {
     const student = await Student.findOne({regno:req.body.username, password:req.body.password})
     if(student){
         console.log(req.body.regno+" Logged In")
         const token = jwt.sign({
             username:student.regno,
-        },"celebal")
+        },"abc123")
         console.log(token)
         return res.json({status:'ok',user:token})
     }else{
@@ -32,7 +37,7 @@ app.post("/admin/login",async(req , res) => {
         console.log(req.body.regno+" Logged In")
         const token = jwt.sign({
             username:admin.id,
-        },"celebal")
+        },"abc123")
         console.log(token)
         return res.json({status:'ok',user:token})
     }else{
@@ -44,7 +49,7 @@ app.post("/admin/login",async(req , res) => {
 app.get("/fetchStudentRecords",async (req , res) => {
     const token = req.headers['x-access-token']
     try{
-        const decoded = jwt.verify(token , "celebal");
+        const decoded = jwt.verify(token , "abc123");
         console.log("Token -> "+decoded.username)
         const data = await Marks.find({regno:decoded.username})
         const response = JSON.stringify(data)

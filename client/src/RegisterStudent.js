@@ -15,7 +15,7 @@ const RegisterStudent = () => {
     }
     async function handleSubmit(){
         console.log(name+" "+regno+" "+mobno)
-        const response = await fetch("http://localhost:5000/registerStudentRecord" , {
+        const response = await fetch("https://student-management-system-seven.vercel.app/registerStudentRecord" , {
         method:"POST",
         headers:{
         'Content-Type':"application/json"

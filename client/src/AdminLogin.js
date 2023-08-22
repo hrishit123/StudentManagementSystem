@@ -8,7 +8,7 @@ const AdminLogin = () => {
         e.preventDefault();
         console.log("Username = "+username)
         console.log("Password = "+password)
-        const response = await fetch("http://localhost:5000/admin/login" , {
+        const response = await fetch("https://student-management-system-seven.vercel.app/admin/login" , {
         method:"POST",
         headers:{
         'Content-Type':"application/json"
